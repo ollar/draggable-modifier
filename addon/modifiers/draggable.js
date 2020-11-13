@@ -1,5 +1,6 @@
 import Modifier from 'ember-modifier';
 import { htmlSafe } from '@ember/string';
+import { schedule } from '@ember/runloop';
 
 import Hammer from 'hammerjs';
 
@@ -82,26 +83,26 @@ export default class DraggableModifier extends Modifier {
     handlePanMove(ev) {
         ev.preventDefault();
 
-        const _beforeMove = this.args.named._beforeMove;
-        const _afterMove = this.args.named._afterMove;
+        schedule('afterRender', () => {
+            const _beforeMove = this.args.named._beforeMove;
+            const _afterMove = this.args.named._afterMove;
 
-        _beforeMove && _beforeMove.call && _beforeMove(ev);
+            _beforeMove && _beforeMove.call && _beforeMove(ev);
 
-        const moveX = () =>
-            (ev.direction & this.panDirection) === ev.direction
-                ? this.initialTransform[0] + this.calcDelta(ev.deltaX)
-                : this.previousMoveX;
-        const moveY = () =>
-            (ev.direction & this.panDirection) === ev.direction
-                ? this.initialTransform[1] + this.calcDelta(ev.deltaY)
-                : this.previousMoveY;
+            const moveX = () =>
+                (ev.direction & this.panDirection) === ev.direction
+                    ? this.initialTransform[0] + this.calcDelta(ev.deltaX)
+                    : this.previousMoveX;
+            const moveY = () =>
+                (ev.direction & this.panDirection) === ev.direction
+                    ? this.initialTransform[1] + this.calcDelta(ev.deltaY)
+                    : this.previousMoveY;
 
-        const allowedHorizontal =
-            (this.panDirection | DIRECTION_HORIZONTAL) === this.panDirection;
-        const allowedVertical =
-            (this.panDirection | DIRECTION_VERTICAL) === this.panDirection;
+            const allowedHorizontal =
+                (this.panDirection | DIRECTION_HORIZONTAL) === this.panDirection;
+            const allowedVertical =
+                (this.panDirection | DIRECTION_VERTICAL) === this.panDirection;
 
-        requestAnimationFrame(() => {
             this.element.style =
                 htmlSafe(
                     `${this.cachedStyle};
