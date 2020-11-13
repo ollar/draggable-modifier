@@ -1,7 +1,7 @@
 draggable-modifier
 ==============================================================================
 
-Modifier wrapper over Hammer.js
+Modifier wrapper over Hammer.js library to drag elements
 
 
 Compatibility
