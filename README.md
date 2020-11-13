@@ -36,7 +36,9 @@ This is a rewrite of the draggable-mixin addon to modifier. A working example is
                     }}>
 ```
 
-where `handlePanStart`, `handlePanMove`, `handlePanEnd`, `onPanEnvComplete` are optional function wrappers over modifier's ones. They get `event` and `cb` as parameters eg: ```handlePanStart = (ev, handlePanStartFromDraggableCallback) -> undefined```.
+where `handlePanStart`, `handlePanMove`, `handlePanEnd`, `onPanEnvComplete` are optional function wrappers over modifier's ones. They get `event`, `cb` and `draggableInstance` as parameters eg:
+
+```handlePanStart = (ev, handlePanStartFromDraggableCallback, draggableInstance) -> void 0```.
 
 `maxDistance` - {number} dragging limit in px.
 

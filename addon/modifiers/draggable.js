@@ -33,22 +33,22 @@ export default class DraggableModifier extends Modifier {
 
         this.handlePanStart =
             named.handlePanStart ?
-            e => named.handlePanStart(e, handlePanStart) :
+            e => named.handlePanStart(e, handlePanStart, this) :
             handlePanStart;
 
         this.handlePanMove =
             named.handlePanMove ?
-            e => named.handlePanMove(e, handlePanMove) :
+            e => named.handlePanMove(e, handlePanMove, this) :
             handlePanMove;
 
         this.handlePanEnd =
             named.handlePanEnd ?
-            e => named.handlePanEnd(e, handlePanEnd) :
+            e => named.handlePanEnd(e, handlePanEnd, this) :
             handlePanEnd;
 
         this.onPanEnvComplete =
             named.onPanEnvComplete ?
-            e => named.onPanEnvComplete(e, onPanEnvComplete) :
+            e => named.onPanEnvComplete(e, onPanEnvComplete, this) :
             onPanEnvComplete;
     }
 
