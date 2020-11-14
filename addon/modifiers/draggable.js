@@ -120,12 +120,13 @@ export default class DraggableModifier extends Modifier {
     }
 
     handlePanEnd(ev) {
-        this.element.classList.remove('is-dragged');
-
         ev.preventDefault();
         ev.srcEvent.stopPropagation();
 
-        this.onPanEnvComplete(ev);
+        schedule('afterRender', () => {
+            this.element.classList.remove('is-dragged');
+            this.onPanEnvComplete(ev);
+        });
     }
 
     addEventListener() {
