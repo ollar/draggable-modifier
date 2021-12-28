@@ -1,10 +1,12 @@
 'use strict';
 
+const { isGPDeploy } = process.env;
+
 module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'dummy',
     environment,
-    rootURL: '/',
+    rootURL: isGPDeploy ? '/draggable-modifier/' : '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
