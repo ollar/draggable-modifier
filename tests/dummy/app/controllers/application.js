@@ -5,4 +5,8 @@ export default class ApplicationController extends Controller {
     DIRECTION_ALL = DIRECTION_ALL;
     DIRECTION_HORIZONTAL = DIRECTION_HORIZONTAL;
     DIRECTION_VERTICAL = DIRECTION_VERTICAL;
+
+    handlePanMove(ev, cb) {
+        return cb(ev);
+    }
 }

@@ -1,17 +1,14 @@
 import Modifier from 'ember-modifier';
 import { htmlSafe } from '@ember/string';
 import { schedule } from '@ember/runloop';
-
 import Hammer from 'hammerjs';
 
 const { DIRECTION_ALL, DIRECTION_HORIZONTAL, DIRECTION_VERTICAL } = Hammer;
-
 
 const defaultConfigs = {
     panDirection: DIRECTION_ALL,
     maxDistance: 1000,
 };
-
 
 export default class DraggableModifier extends Modifier {
     cachedStyle = htmlSafe('');

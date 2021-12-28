@@ -1,16 +1,17 @@
-{{page-title "Dummy"}}
+{{page-title "Welcome to draggable modifier demo"}}
+
 <h2 id="title">Welcome to draggable modifier demo</h2>
 
-<Box @panDirection={{this.DIRECTION_HORIZONTAL}}>
+<div class="box" {{draggable panDirection=this.DIRECTION_HORIZONTAL}}>
     horizontal
-</Box>
+</div>
 
-<Box @panDirection={{this.DIRECTION_VERTICAL}}>
+<div class="box" {{draggable panDirection=this.DIRECTION_VERTICAL handlePanMove=this.handlePanMove}}>
     vertical
-</Box>
+</div>
 
-<Box @panDirection={{this.DIRECTION_ALL}}>
+<div class="box" {{draggable panDirection=this.DIRECTION_ALL handlePanMove=this.handlePanMove}}>
     all
-</Box>
+</div>
 
 {{outlet}}
