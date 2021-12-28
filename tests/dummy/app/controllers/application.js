@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { htmlSafe } from '@ember/string';
 import {
   DIRECTION_ALL,
   DIRECTION_HORIZONTAL,
@@ -10,7 +11,24 @@ export default class ApplicationController extends Controller {
   DIRECTION_HORIZONTAL = DIRECTION_HORIZONTAL;
   DIRECTION_VERTICAL = DIRECTION_VERTICAL;
 
-  handlePanMove(ev, cb) {
-    return cb(ev);
+  get code1() {
+      return htmlSafe(`
+        <div class="box" {{draggable panDirection=this.DIRECTION_HORIZONTAL}}>
+          horizontal
+        </div>`);
+  }
+
+  get code2() {
+    return htmlSafe(`
+        <div class="box" {{draggable panDirection=this.DIRECTION_VERTICAL}}>
+          vertical
+        </div>`);
+  }
+
+  get code3() {
+      return htmlSafe(`
+        <div class="box" {{draggable panDirection=this.DIRECTION_ALL}}>
+          all
+        </div>`);
   }
 }

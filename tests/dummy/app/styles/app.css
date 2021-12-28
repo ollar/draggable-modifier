@@ -1,10 +1,23 @@
+.content-wrapper {
+    display: flex;
+}
+
 .box {
     margin: 100px;
     width: 100px;
     height: 100px;
     border: 2px solid;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.code-preview {
+    margin: 100px;
+    margin-left: 0;
+    height: 100px;
 }
 
 .box.is-dragged {
-    will-change: translate;
+    transition: none;
+    will-change: transform;
 }

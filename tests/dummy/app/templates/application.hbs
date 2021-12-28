@@ -2,16 +2,34 @@
 
 <h2 id="title">Welcome to draggable modifier demo</h2>
 
-<div class="box" {{draggable panDirection=this.DIRECTION_HORIZONTAL}}>
-    horizontal
-</div>
+<div class="content-wrapper">
+    <main>
+        <div class="box" {{draggable panDirection=this.DIRECTION_HORIZONTAL}}>
+            horizontal
+        </div>
 
-<div class="box" {{draggable panDirection=this.DIRECTION_VERTICAL handlePanMove=this.handlePanMove}}>
-    vertical
-</div>
+        <div class="box" {{draggable panDirection=this.DIRECTION_VERTICAL}}>
+            vertical
+        </div>
 
-<div class="box" {{draggable panDirection=this.DIRECTION_ALL handlePanMove=this.handlePanMove}}>
-    all
+        <div class="box" {{draggable panDirection=this.DIRECTION_ALL}}>
+            all
+        </div>
+    </main>
+
+    <aside>
+        <xmp class="code-preview">
+            {{this.code1}}
+        </xmp>
+
+        <xmp class="code-preview">
+            {{this.code2}}
+        </xmp>
+
+        <xmp class="code-preview">
+            {{this.code3}}
+        </xmp>
+    </aside>
 </div>
 
 {{outlet}}
