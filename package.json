@@ -1,6 +1,6 @@
 {
   "name": "draggable-modifier",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Modifier wrapper over Hammer.js library to drag elements",
   "keywords": [
     "ember-addon",
