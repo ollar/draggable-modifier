@@ -22,7 +22,7 @@ export function triggerEvent(element, type, data = {}) {
   event.initEvent(type, true, true);
 
   for (const key in data) {
-    if (data.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(data, key)) {
       Object.defineProperty(event, key, {
         value: data[key],
       });
@@ -38,27 +38,24 @@ export function triggerEvent(element, type, data = {}) {
 
 //https://github.com/Shopify/draggable/blob/v1.0.0-beta.8/scripts/test/helpers/sensor.js
 export function clickMouse(element, options = {}) {
-  return triggerEvent(
-    element,
-    'mousedown',
-    {...defaultMouseEventOptions, ...options}
-  );
+  return triggerEvent(element, 'mousedown', {
+    ...defaultMouseEventOptions,
+    ...options,
+  });
 }
 
 export function moveMouse(element, options = {}) {
-  return triggerEvent(
-    element,
-    'mousemove',
-    {...defaultMouseEventOptions, ...options}
-  );
+  return triggerEvent(element, 'mousemove', {
+    ...defaultMouseEventOptions,
+    ...options,
+  });
 }
 
 export function releaseMouse(element, options = {}) {
-  return triggerEvent(
-    element,
-    'mouseup',
-    {...defaultMouseEventOptions, ...options}
-  );
+  return triggerEvent(element, 'mouseup', {
+    ...defaultMouseEventOptions,
+    ...options,
+  });
 }
 
 export function waitFor(ms) {

@@ -4,7 +4,6 @@ import { render, find, triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import Touchemulator from 'hammer-touchemulator';
 
-
 module('Integration | Modifier | draggable', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -21,13 +20,19 @@ module('Integration | Modifier | draggable', function (hooks) {
 
     const element = await find('[data-test-element]');
 
-    const {x, y} = element.getBoundingClientRect();
+    const { x, y } = element.getBoundingClientRect();
 
-    await triggerEvent( element, 'mousedown', { clientX: x, clientY: y })
+    await triggerEvent(element, 'mousedown', { clientX: x, clientY: y });
     for (let i = 0; i < 100; i++) {
-      await triggerEvent( element, 'mousemove', { clientX: x + i, clientY: y + i })
+      await triggerEvent(element, 'mousemove', {
+        clientX: x + i,
+        clientY: y + i,
+      });
     }
-    await triggerEvent( element, 'mouseup', { clientX: x+ 99, clientY: y+99 })
+    await triggerEvent(element, 'mouseup', {
+      clientX: x + 99,
+      clientY: y + 99,
+    });
 
     assert.ok(element);
   });

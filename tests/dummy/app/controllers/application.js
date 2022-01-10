@@ -12,7 +12,7 @@ export default class ApplicationController extends Controller {
   DIRECTION_VERTICAL = DIRECTION_VERTICAL;
 
   get code1() {
-      return htmlSafe(`
+    return htmlSafe(`
         <div class="box" {{draggable panDirection=this.DIRECTION_HORIZONTAL}}>
           horizontal
         </div>`);
@@ -26,7 +26,7 @@ export default class ApplicationController extends Controller {
   }
 
   get code3() {
-      return htmlSafe(`
+    return htmlSafe(`
         <div class="box" {{draggable panDirection=this.DIRECTION_ALL}}>
           all
         </div>`);
